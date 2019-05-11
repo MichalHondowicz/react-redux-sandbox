@@ -22,7 +22,7 @@ class AdminPanel extends React.Component {
                     <div className='form-group'>
                         <input type='checkbox' id='availability' name='availability'
                                className='form-check-input'/>
-                        <label for="availability" className='form-check-label'>Available</label>
+                        <label htmlFor="availability" className='form-check-label'>Available</label>
                         <div className='form-group'>
                             <input type='text' placeholder='Book image' id='image' name='image'
                                    className='form-control'/>

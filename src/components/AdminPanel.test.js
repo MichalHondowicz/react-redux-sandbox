@@ -15,6 +15,6 @@ describe('AdminPanel test', () => {
 
     it('Inventory rendered', () => {
         const wrapper = shallow(<AdminPanel/>);
-        expect(wrapper.find('div').text()).toBe('Admin Panel');
+        expect(wrapper).toMatchSnapshot();
     })
 });

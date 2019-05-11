@@ -1,22 +1,20 @@
 import ReactDOM from "react-dom";
-import App from "./App";
+import Header from "./Header";
 import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16'
 
 configure({adapter: new Adapter()});
 
-describe('App test', () => {
-    it('App renders with no problems ', () => {
+describe('Header test', () => {
+    it('Header renders with no problems ', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<App/>, div);
+        ReactDOM.render(<Header/>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
     it('Hello World rendered', () => {
-        const wrapper = shallow(<App/>);
-        expect(wrapper.find('i').text()).toBe('Hello World');
+        const wrapper = shallow(<Header/>);
+        expect(wrapper.find('h1').text()).toBe('Header');
     })
 });
-
-

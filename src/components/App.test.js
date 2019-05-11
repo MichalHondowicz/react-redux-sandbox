@@ -15,7 +15,10 @@ describe('App test', () => {
 
     it('Hello World rendered', () => {
         const wrapper = shallow(<App/>);
-        expect(wrapper.find('i').text()).toBe('Hello World');
+        expect(wrapper.find('Header').exists()).toBe(true);
+        expect(wrapper.find('Inventory').exists()).toBe(true);
+        expect(wrapper.find('Order').exists()).toBe(true);
+        expect(wrapper.find('AdminPanel').exists()).toBe(true);
     })
 });
 

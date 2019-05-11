@@ -13,7 +13,7 @@ describe('Header test', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Hello World rendered', () => {
+    it('Header rendered', () => {
         const wrapper = shallow(<Header/>);
         expect(wrapper.find('h1').text()).toBe('Header');
     })

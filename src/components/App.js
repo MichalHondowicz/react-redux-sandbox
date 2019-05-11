@@ -11,9 +11,11 @@ class App extends React.Component {
         return (
             <div className='app container'>
                 <Header/>
-                <Order/>
-                <Inventory/>
-                <AdminPanel/>
+                <div className='row'>
+                    <Order/>
+                    <Inventory/>
+                    <AdminPanel/>
+                </div>
             </div>
         )
     }

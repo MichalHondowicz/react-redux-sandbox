@@ -4,7 +4,7 @@ class AdminPanel extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='adminPanel col-md-4'>
                 Admin Panel
             </div>
         )

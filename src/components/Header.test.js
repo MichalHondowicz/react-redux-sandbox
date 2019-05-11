@@ -27,5 +27,10 @@ describe('Header test', () => {
         expect(wrapper.state().bookstoreName).toBe('Magic books');
         wrapper.find('.header').simulate('click');
         expect(wrapper.state().bookstoreName).toBe('Black books');
+    });
+
+    it('Snapshot ok', () => {
+        const wrapper = shallow(<Header/>);
+        expect(wrapper).toMatchSnapshot();
     })
 });

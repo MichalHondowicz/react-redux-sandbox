@@ -4,6 +4,7 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16'
 
+
 configure({adapter: new Adapter()});
 
 describe('Order test', () => {
@@ -16,5 +17,10 @@ describe('Order test', () => {
     it('Inventory rendered', () => {
         const wrapper = shallow(<Order/>);
         expect(wrapper.find('div').text()).toBe('Order');
+    });
+
+    it('Snapshot ok', () => {
+        const wrapper = shallow(<Order/>);
+        expect(wrapper).toMatchSnapshot();
     })
 });

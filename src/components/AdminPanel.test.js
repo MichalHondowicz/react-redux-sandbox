@@ -13,7 +13,7 @@ describe('AdminPanel test', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Inventory rendered', () => {
+    it('Snapshot ok', () => {
         const wrapper = shallow(<AdminPanel/>);
         expect(wrapper).toMatchSnapshot();
     })

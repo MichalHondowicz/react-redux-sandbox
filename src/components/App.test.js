@@ -13,7 +13,7 @@ describe('App test', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Hello World rendered', () => {
+    it('Subcomponents render', () => {
         const wrapper = shallow(<App/>);
         expect(wrapper.find('Header').exists()).toBe(true);
         expect(wrapper.find('Inventory').exists()).toBe(true);

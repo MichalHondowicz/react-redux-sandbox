@@ -21,5 +21,3 @@ describe('App test', () => {
         expect(wrapper.find('AdminPanel').exists()).toBe(true);
     })
 });
-
-

@@ -13,8 +13,19 @@ describe('Header test', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Header rendered', () => {
+    it('Header changed text when setState', () => {
         const wrapper = shallow(<Header/>);
-        expect(wrapper.find('h1').text()).toBe('Header');
+        expect(wrapper.find('h1').text()).toBe('Magic books');
+        wrapper.setState({
+            bookstoreName: 'Black books'
+        });
+        expect(wrapper.find('h1').text()).toBe('Black books');
+    });
+
+    it('Header state changed with onClick', () => {
+        const wrapper = shallow(<Header/>);
+        expect(wrapper.state().bookstoreName).toBe('Magic books');
+        wrapper.find('.header').simulate('click');
+        expect(wrapper.state().bookstoreName).toBe('Black books');
     })
 });

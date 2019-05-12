@@ -17,10 +17,19 @@ class AdminPanel extends React.Component {
 
     changeHandler = (e) => {
 
-        const newBook = {
-            ...this.state.book,
-            [e.target.name]: e.target.value,
-        };
+        let newBook;
+
+        if (e.target.type === 'checkbox') {
+            newBook = {
+                ...this.state.book,
+                [e.target.name]: e.target.checked
+            };
+        } else {
+            newBook = {
+                ...this.state.book,
+                [e.target.name]: e.target.value
+            }
+        }
 
         this.setState(
             {
@@ -28,7 +37,6 @@ class AdminPanel extends React.Component {
             }
         )
     };
-
 
     render() {
 
@@ -41,7 +49,8 @@ class AdminPanel extends React.Component {
                     </div>
                     <div className='form-group'>
                         <input type='text' placeholder='Book author' id='author' name='author'
-                               className='form-control' onChange={this.changeHandler} value={this.state.book.author}/>
+                               className='form-control' onChange={this.changeHandler}
+                               value={this.state.book.author}/>
                     </div>
                     <div className='form-group'>
                         <textarea placeholder='Book description' id='description' name='description'

@@ -14,7 +14,7 @@ describe('Order test', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Inventory rendered', () => {
+    it('Order rendered', () => {
         const wrapper = shallow(<Order/>);
         expect(wrapper.find('div').text()).toBe('Order');
     });

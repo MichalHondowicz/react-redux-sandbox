@@ -11,7 +11,8 @@ class AdminPanel extends React.Component {
                 description: '',
                 availability: true,
                 image: ''
-            }
+            },
+            books: []
         }
     }
 
@@ -38,11 +39,23 @@ class AdminPanel extends React.Component {
         )
     };
 
+    addNewBook = (e) => {
+
+        e.preventDefault();
+        let newBooks = [...this.state.books];
+        let newBook = {...this.state.book};
+        newBooks.push(newBook);
+
+        this.setState({
+            books: newBooks
+        })
+    };
+
     render() {
 
         return (
             <div className='adminPanel col-md-4'>
-                <form>
+                <form onSubmit={this.addNewBook}>
                     <div className='form-group'>
                         <input type='text' placeholder='Book name' id='name' name='name'
                                className='form-control' onChange={this.changeHandler} value={this.state.book.name}/>

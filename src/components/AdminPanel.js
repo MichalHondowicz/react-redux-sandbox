@@ -47,7 +47,14 @@ class AdminPanel extends React.Component {
         newBooks.push(newBook);
 
         this.setState({
-            books: newBooks
+            books: newBooks,
+            book: {
+                name: '',
+                author: '',
+                description: '',
+                availability: true,
+                image: ''
+            }
         })
     };
 

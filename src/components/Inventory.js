@@ -1,12 +1,11 @@
 import React from 'react';
+import BookItem from './BookItem';
 
 class Inventory extends React.Component {
 
-
     render() {
-
         const bookList = this.props.books.map(book => {
-           return <div>{book.name}</div>
+            return <BookItem book={book}/>
         });
         return (
             <div className='inventory col-md-4'>

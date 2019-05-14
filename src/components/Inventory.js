@@ -5,7 +5,7 @@ class Inventory extends React.Component {
 
     render() {
         const bookList = this.props.books.map(book => {
-            return <BookItem book={book}/>
+            return <BookItem book={book} addToOrder={this.props.addToOrder}/>
         });
         return (
             <div className='inventory col-md-4'>

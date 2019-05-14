@@ -11,17 +11,29 @@ class App extends React.Component {
         super();
         this.state = {
             books: [],
+            order: []
 
         }
     }
 
     addNewBook = (book) => {
 
-        let newBooks = [...this.state.books];
-        newBooks.push(book);
+        this.setState({
+            books: [...this.state.books, book]
+        })
+    };
+
+    addToOrder = (book) => {
 
         this.setState({
-            books: newBooks
+            order: [...this.state.order, book]
+        })
+    };
+
+    removeFromOrder = (orderItem) => {
+
+        this.setState({
+            order: this.state.order.filter(book => orderItem !== book)
         })
     };
 
@@ -30,8 +42,8 @@ class App extends React.Component {
             <div className='app container'>
                 <Header/>
                 <div className='row'>
-                    <Order/>
-                    <Inventory books={this.state.books}/>
+                    <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+                    <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
                     <AdminPanel books={this.state.books} addBook={this.addNewBook}/>
                 </div>
             </div>

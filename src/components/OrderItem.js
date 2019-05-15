@@ -11,7 +11,7 @@ export default class OrderItem extends React.Component {
             <div>
                 <b>{this.props.book.name}</b><br/>
                 <i>{this.props.book.author}</i><br/>
-                <button onClick={this.removeFromOrder}>Remove from Cart</button>
+                <button className='btn btn-danger' onClick={this.removeFromOrder}>Remove from Cart</button>
             </div>
         )
     }

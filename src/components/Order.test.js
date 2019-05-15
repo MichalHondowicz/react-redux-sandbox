@@ -10,17 +10,14 @@ configure({adapter: new Adapter()});
 describe('Order test', () => {
     it('Order renders with no problems ', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Order/>, div);
+        const order = [];
+        ReactDOM.render(<Order order={order}/>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Order rendered', () => {
-        const wrapper = shallow(<Order/>);
-        expect(wrapper.find('div').text()).toBe('Order');
-    });
-
-    it('Snapshot ok', () => {
-        const wrapper = shallow(<Order/>);
+    it('Order Snapshot ok', () => {
+        const order = [];
+        const wrapper = shallow(<Order order={order}/>);
         expect(wrapper).toMatchSnapshot();
     })
 });

@@ -42,7 +42,7 @@ class AdminPanel extends React.Component {
 
         e.preventDefault();
         let newBook = {...this.state.book};
-        this.props.addBook(newBook);
+        // this.props.addBook(newBook);
 
         this.setState({
             book: {

@@ -1,27 +1,27 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding: 10px;
     font-family: sans-serif;
 }
 
-.app {
-    background-color: aqua;
-}
-
-.header {
-    background-color: chartreuse;
-}
-
 .adminPanel {
-    background-color:black;
+    background-color: black;
     padding: 10px;
-    color: white;
 }
 
-.inventory {
-    background-color: aquamarine;
+.bookItem {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
 }
 
-.order {
-    background-color: cornflowerblue;
+.orderItem{
+    border-bottom: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.goToAdmin{
+    float: right;
 }

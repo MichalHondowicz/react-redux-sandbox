@@ -8,10 +8,14 @@ export default class OrderItem extends React.Component {
 
     render() {
         return (
-            <div className='orderItem'>
-                <b>{this.props.book.name}</b><br/>
-                <i>{this.props.book.author}</i><br/>
-                <button className='btn btn-danger' onClick={this.removeFromOrder}>Remove from Cart</button>
+            <div className='orderItem row'>
+                <div className='col-md-8'>
+                    <b>{this.props.book.name}</b><br/>
+                    <i>{this.props.book.author}</i><br/>
+                </div>
+                <div className='col-md-4'>
+                    <button className='btn btn-danger' onClick={this.removeFromOrder}>Remove from Cart</button>
+                </div>
             </div>
         )
     }

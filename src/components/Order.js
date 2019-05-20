@@ -8,7 +8,8 @@ class Order extends React.Component {
             return <OrderItem book={book} removeFromOrder={this.props.removeFromOrder}/>
         });
         return (
-            <div className='inventory col-md-4'>
+            <div className='inventory col-md-6'>
+                <h2>Cart: </h2>
                 {orderList}
             </div>
         )

@@ -1,5 +1,5 @@
 import React from 'react';
-import {base} from "../base";
+import {base, firebaseConfig} from "../base";
 
 class AdminPanel extends React.Component {
 
@@ -85,8 +85,16 @@ class AdminPanel extends React.Component {
 
     authenticate = (e) => {
         e.preventDefault();
-        console.log(`${this.state.email} ${this.state.password}`);
-    }
+        firebaseConfig.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => {
+                this.setState({
+                    loggedIn: true
+                })
+            })
+            .catch(() => {
+                console.log('Unable to authenticate');
+            });
+    };
 
     render() {
         return (

@@ -24,7 +24,7 @@ class Inventory extends React.Component {
 
     render() {
         const bookList = this.state.books.map(book => {
-            return <BookItem book={book} addToOrder={this.props.addToOrder}/>
+            return <BookItem key={book.name} book={book} addToOrder={this.props.addToOrder}/>
         });
         return (
             <div className='inventory col-md-6'>

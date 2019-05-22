@@ -105,7 +105,7 @@ class AdminPanel extends React.Component {
                            onChange={this.loginChangeHandler} value={this.state.email}/>
                     <input type='password' placeholder='password' id='password' name='password' className='form-control'
                            onChange={this.loginChangeHandler} value={this.state.password}/>
-                    <button type='submit' className='btn btn-primary'>Add</button>
+                    <button type='submit' className='btn btn-primary'>Sign in</button>
                 </form>
                 }
                 {this.state.loggedIn &&

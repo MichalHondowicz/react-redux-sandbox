@@ -72,7 +72,9 @@ class AdminPanel extends React.Component {
     };
 
     componentDidMount() {
-
+        if(localStorage.getItem('loggedIn')){
+            this.setState({loggedIn:localStorage.getItem('loggedIn')})
+        }
         this.ref = base.syncState('bookstore/books', {
             context: this,
             state: 'books'
@@ -89,7 +91,8 @@ class AdminPanel extends React.Component {
             .then(() => {
                 this.setState({
                     loggedIn: true
-                })
+                });
+                localStorage.setItem('loggedIn', true);
             })
             .catch(() => {
                 console.log('Unable to authenticate');

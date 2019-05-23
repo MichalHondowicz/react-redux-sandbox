@@ -72,8 +72,8 @@ class AdminPanel extends React.Component {
     };
 
     componentDidMount() {
-        if(localStorage.getItem('loggedIn')){
-            this.setState({loggedIn:localStorage.getItem('loggedIn')})
+        if (localStorage.getItem('loggedIn')) {
+            this.setState({loggedIn: localStorage.getItem('loggedIn')})
         }
         this.ref = base.syncState('bookstore/books', {
             context: this,
@@ -103,13 +103,21 @@ class AdminPanel extends React.Component {
         return (
             <div>
                 {!this.state.loggedIn &&
-                <form onSubmit={this.authenticate}>
-                    <input type='text' placeholder='email' id='email' name='email' className='form-control'
-                           onChange={this.loginChangeHandler} value={this.state.email}/>
-                    <input type='password' placeholder='password' id='password' name='password' className='form-control'
-                           onChange={this.loginChangeHandler} value={this.state.password}/>
-                    <button type='submit' className='btn btn-primary'>Sign in</button>
-                </form>
+                <div className='col-md-4'>
+                    <form onSubmit={this.authenticate}>
+                        <div className='form-group'>
+                            <input type='text' placeholder='email' id='email' name='email'
+                                   className='form-control'
+                                   onChange={this.loginChangeHandler} value={this.state.email}/>
+                        </div>
+                        <div className='form-group'>
+                            <input type='password' placeholder='password' id='password' name='password'
+                                   className='form-control'
+                                   onChange={this.loginChangeHandler} value={this.state.password}/>
+                            <button type='submit' className='btn btn-primary'>Sign in</button>
+                        </div>
+                    </form>
+                </div>
                 }
                 {this.state.loggedIn &&
                 <div className='adminPanel col-md-4'>

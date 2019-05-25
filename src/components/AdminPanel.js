@@ -1,5 +1,4 @@
 import React from 'react';
-import {base} from '../base';
 import LoginForm from './LoginForm';
 import BookForm from './BookForm';
 
@@ -12,7 +11,7 @@ class AdminPanel extends React.Component {
         }
     }
 
-    handleLoggedIn = (logger) => {
+    handleLoggedState = (logger) => {
         this.setState({loggedIn: logger})
     };
 
@@ -20,10 +19,10 @@ class AdminPanel extends React.Component {
         return (
             <div>
                 {!this.state.loggedIn &&
-                <LoginForm handleLoggedIn={this.handleLoggedIn}/>
+                <LoginForm handleLoggedState={this.handleLoggedState}/>
                 }
                 {this.state.loggedIn &&
-                <BookForm/>
+                <BookForm handleLoggedState={this.handleLoggedState}/>
                 }
             </div>
         )

@@ -1,11 +1,11 @@
 import React from 'react';
-import {base} from "../base";
+import {app, base} from "../base";
 
 export default class BookForm extends React.Component {
 
-    constructor(){
+    constructor() {
         super();
-        this.state={
+        this.state = {
             books: [],
             book: {
                 name: '',
@@ -60,6 +60,17 @@ export default class BookForm extends React.Component {
         })
     };
 
+    logOut = (e) => {
+        e.preventDefault();
+        app.auth().signOut()
+            .then(() => {
+                this.props.handleLoggedState(false);
+            })
+            .catch(() => {
+                console.log('Unable to log out');
+            })
+    };
+
     componentDidMount() {
         this.ref = base.syncState('bookstore/books', {
             context: this,
@@ -100,6 +111,9 @@ export default class BookForm extends React.Component {
                                    value={this.state.book.image}/>
                         </div>
                         <button type='submit' className='btn btn-primary'>Add</button>
+                        <div>
+                            <button onClick={this.logOut} className='btn btn-danger'>Log out</button>
+                        </div>
                     </div>
                 </form>
             </div>

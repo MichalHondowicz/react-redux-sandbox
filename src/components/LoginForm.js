@@ -21,7 +21,7 @@ export default class LoginForm extends React.Component {
         e.preventDefault();
         app.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
-                this.props.handleLoggedIn(true);
+                this.props.handleLoggedState(true);
             })
             .catch(() => {
                 console.log('Unable to authenticate');

@@ -25,3 +25,9 @@ body {
 .goToAdmin{
     float: right;
 }
+
+.footer{
+    float: right;
+    margin: 5px;
+    padding: 5px;
+}

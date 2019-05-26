@@ -11,6 +11,7 @@ export default class BookForm extends React.Component {
                 name: '',
                 author: '',
                 description: '',
+                genre: '',
                 availability: true,
                 image: ''
             }
@@ -54,6 +55,7 @@ export default class BookForm extends React.Component {
                 name: '',
                 author: '',
                 description: '',
+                genre: '',
                 availability: true,
                 image: ''
             }
@@ -100,6 +102,15 @@ export default class BookForm extends React.Component {
                                   className='form-control' onChange={this.changeHandler}
                                   value={this.state.book.description}/>
                     </div>
+                    <label>
+                        Book genre
+                        <select name='genre' id='genre' value={this.state.book.genre} onChange={this.changeHandler}>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Fantasy">Fantasy</option>
+                        </select>
+                    </label>
                     <div className='form-group'>
                         <input type='checkbox' id='availability' name='availability'
                                className='form-check-input' onChange={this.changeHandler}

@@ -1,12 +1,11 @@
 import React from 'react';
-import {app, base} from "../base";
+import {app} from "../base";
 
 export default class BookForm extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            books: [],
             book: {
                 name: '',
                 author: '',
@@ -45,11 +44,8 @@ export default class BookForm extends React.Component {
         e.preventDefault();
         let newBook = {...this.state.book};
 
-        if (Array.isArray(this.state.books)) {
-            this.setState({books: [...this.state.books, newBook]})
-        } else {
-            this.setState({books: [newBook]})
-        }
+        this.props.addNewBook(newBook);
+
         this.setState({
             book: {
                 name: '',
@@ -73,16 +69,6 @@ export default class BookForm extends React.Component {
             })
     };
 
-    componentDidMount() {
-        this.ref = base.syncState('bookstore/books', {
-            context: this,
-            state: 'books'
-        })
-    }
-
-    componentWillUnmount() {
-        base.removeBinding(this.ref)
-    }
 
     render() {
         return (

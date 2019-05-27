@@ -1,12 +1,16 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import BookForm from './BookForm';
+import AdminInventoryList from "./AdminInventoryList";
+import {base} from "../base";
+
 
 class AdminPanel extends React.Component {
 
     constructor() {
         super();
         this.state = {
+            books: [],
             loggedIn: false,
         }
     }
@@ -15,6 +19,20 @@ class AdminPanel extends React.Component {
         this.setState({loggedIn: logger})
     };
 
+    addNewBook = (newBook) => this.setState({books: [...this.state.books, newBook]});
+
+    componentDidMount() {
+        this.ref = base.syncState('bookstore/books', {
+            context: this,
+            state: 'books'
+        })
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.ref)
+    }
+
+
     render() {
         return (
             <div>
@@ -22,7 +40,10 @@ class AdminPanel extends React.Component {
                 <LoginForm handleLoggedState={this.handleLoggedState}/>
                 }
                 {this.state.loggedIn &&
-                <BookForm handleLoggedState={this.handleLoggedState}/>
+                <React.Fragment>
+                    <BookForm handleLoggedState={this.handleLoggedState} addNewBook={this.addNewBook}/>
+                    <AdminInventoryList books={this.state.books}/>
+                </React.Fragment>
                 }
             </div>
         )

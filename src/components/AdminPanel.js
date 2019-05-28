@@ -11,6 +11,8 @@ class AdminPanel extends React.Component {
         super();
         this.state = {
             loggedIn: false,
+            editMode: false,
+            editedBook: {}
         }
     }
 
@@ -19,12 +21,34 @@ class AdminPanel extends React.Component {
     };
 
     addNewBook = (newBook) => {
-
         if (Array.isArray(this.state.books)) {
-            this.setState({books: [...this.state.books, newBook]});
+            this.setState({
+                books: [...this.state.books, newBook],
+                editMode: false,
+                editedBook: {}
+            });
         } else {
             this.setState({books: [newBook]})
         }
+    };
+
+    editModeHandler = (bookToEdit) => {
+        this.setState({
+            editMode: true,
+            editedBook: bookToEdit
+        })
+
+    };
+
+    editBook = (previousBook, updatedBook) => {
+
+        const newBooks = this.state.books.filter(book => previousBook !== book.name);
+
+        this.setState({
+            books: [...newBooks, updatedBook],
+            editMode: false,
+            editedBook: {}
+        });
     };
 
     removeFromInventory = (inventoryItem) => {
@@ -53,8 +77,10 @@ class AdminPanel extends React.Component {
                 }
                 {this.state.loggedIn &&
                 <React.Fragment>
-                    <BookForm handleLoggedState={this.handleLoggedState} addNewBook={this.addNewBook}/>
-                    <AdminInventoryList books={this.state.books} removeFromInventory={this.removeFromInventory}/>
+                    <BookForm handleLoggedState={this.handleLoggedState} addNewBook={this.addNewBook}
+                              editMode={this.state.editMode} book={this.state.editedBook} editBook={this.editBook}/>
+                    <AdminInventoryList books={this.state.books} removeFromInventory={this.removeFromInventory}
+                                        editModeHandler={this.editModeHandler}/>
                 </React.Fragment>
                 }
             </div>

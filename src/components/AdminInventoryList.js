@@ -5,9 +5,14 @@ export default class AdminInventoryList extends React.Component {
 
 
     render() {
-        const inventoryList = this.props.books.map(book => {
-            return <InventoryItem book={book} removeFromInventory={this.props.removeFromInventory}/>
-        });
+        let inventoryList;
+        if (this.props.books) {
+            inventoryList = this.props.books.map(book => {
+               return <InventoryItem book={book} removeFromInventory={this.props.removeFromInventory}/>
+            })
+        } else {
+            inventoryList = <div>No books in inventory</div>
+        }
         return (
             <div className='inventory col-md-6'>
                 <h2>Cart: </h2>

@@ -21,6 +21,12 @@ class AdminPanel extends React.Component {
 
     addNewBook = (newBook) => this.setState({books: [...this.state.books, newBook]});
 
+    removeFromInventory = (inventoryItem) => {
+        this.setState({
+            books: this.state.books.filter(book => inventoryItem !== book)
+        })
+    };
+
     componentDidMount() {
         this.ref = base.syncState('bookstore/books', {
             context: this,
@@ -42,7 +48,7 @@ class AdminPanel extends React.Component {
                 {this.state.loggedIn &&
                 <React.Fragment>
                     <BookForm handleLoggedState={this.handleLoggedState} addNewBook={this.addNewBook}/>
-                    <AdminInventoryList books={this.state.books}/>
+                    <AdminInventoryList books={this.state.books} removeFromInventory={this.removeFromInventory}/>
                 </React.Fragment>
                 }
             </div>

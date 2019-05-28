@@ -6,10 +6,11 @@ export default class AdminInventoryList extends React.Component {
 
     render() {
         let inventoryList = <div>No books in inventory</div>;
-        if (this.props.books) {
+        if (Array.isArray(this.props.books)) {
             inventoryList = this.props.books.map(book => {
-               return <InventoryItem book={book} removeFromInventory={this.props.removeFromInventory}/>
-            })}
+                return <InventoryItem book={book} removeFromInventory={this.props.removeFromInventory}/>
+            })
+        }
         return (
             <div className='inventory col-md-6'>
                 <h2>Cart: </h2>

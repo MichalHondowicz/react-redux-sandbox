@@ -10,7 +10,6 @@ class AdminPanel extends React.Component {
     constructor() {
         super();
         this.state = {
-            books: [],
             loggedIn: false,
         }
     }
@@ -19,7 +18,14 @@ class AdminPanel extends React.Component {
         this.setState({loggedIn: logger})
     };
 
-    addNewBook = (newBook) => this.setState({books: [...this.state.books, newBook]});
+    addNewBook = (newBook) => {
+
+        if (Array.isArray(this.state.books)) {
+            this.setState({books: [...this.state.books, newBook]});
+        } else {
+            this.setState({books: [newBook]})
+        }
+    };
 
     removeFromInventory = (inventoryItem) => {
         this.setState({

@@ -17,6 +17,7 @@ export default class BookItem extends React.Component {
                     <i>{this.props.book.author}</i><br/>
                     <i>{this.props.book.description}</i><br/>
                     <i>{this.props.book.genre}</i><br/>
+                    <i>{this.props.book.price}</i><br/>
                 </div>
                 <div className='col-md-4'>
                     <button className='btn btn-success' onClick={this.addToOrder}>Add to Cart</button>

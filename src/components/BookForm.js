@@ -12,7 +12,8 @@ export default class BookForm extends React.Component {
                 description: "",
                 image: "",
                 availability: true,
-                genre: ""
+                genre: "",
+                price: ""
             }
         };
     }
@@ -63,7 +64,8 @@ export default class BookForm extends React.Component {
                 description: "",
                 image: "",
                 availability: true,
-                genre: ""
+                genre: "",
+                price: ""
             }
         });
 
@@ -98,6 +100,11 @@ export default class BookForm extends React.Component {
                         <input type='text' placeholder='Book author' id='author' name='author'
                                className='form-control' onChange={this.changeHandler}
                                value={this.state.book.author || this.props.book.author}/>
+                    </div>
+                    <div className='form-group'>
+                        <input type='text' placeholder='Book price' id='price' name='price'
+                               className='form-control' onChange={this.changeHandler}
+                               value={this.state.book.price || this.props.book.price}/>
                     </div>
                     <div className='form-group'>
                         <textarea placeholder='Book description' id='description' name='description'

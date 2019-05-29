@@ -18,7 +18,8 @@ class AdminPanel extends React.Component {
                 description: "",
                 image: "",
                 availability: true,
-                genre: ""
+                genre: "",
+                price: ""
             }
         }
     }
@@ -38,7 +39,8 @@ class AdminPanel extends React.Component {
                     description: "",
                     image: "",
                     availability: true,
-                    genre: ""
+                    genre: "",
+                    price: ""
                 }
             });
         } else {
@@ -67,7 +69,8 @@ class AdminPanel extends React.Component {
                 description: "",
                 image: "",
                 availability: true,
-                genre: ""
+                genre: "",
+                price: ""
             }
         });
     };

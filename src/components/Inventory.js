@@ -25,9 +25,10 @@ class Inventory extends React.Component {
         let bookList = <h4>No books in inventory</h4>;
 
         if (Array.isArray(this.state.books)) {
-            bookList = this.state.books.map(book => {
-                return <BookItem key={book.name} book={book} addToOrder={this.props.addToOrder}/>
-            });
+            bookList = this.state.books.filter((book) => book.availability = true)
+                .map(book => {
+                    return <BookItem key={book.name} book={book} addToOrder={this.props.addToOrder}/>
+                });
         }
         return (
             <div className='inventory col-md-6'>

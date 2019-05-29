@@ -12,7 +12,14 @@ class AdminPanel extends React.Component {
         this.state = {
             loggedIn: false,
             editMode: false,
-            editedBook: {}
+            editedBook: {
+                name: "",
+                author: "",
+                description: "",
+                image: "",
+                availability: true,
+                genre: ""
+            }
         }
     }
 
@@ -25,7 +32,14 @@ class AdminPanel extends React.Component {
             this.setState({
                 books: [...this.state.books, newBook],
                 editMode: false,
-                editedBook: {}
+                editedBook: {
+                    name: "",
+                    author: "",
+                    description: "",
+                    image: "",
+                    availability: true,
+                    genre: ""
+                }
             });
         } else {
             this.setState({books: [newBook]})
@@ -47,7 +61,14 @@ class AdminPanel extends React.Component {
         this.setState({
             books: [...newBooks, updatedBook],
             editMode: false,
-            editedBook: {}
+            editedBook: {
+                name: "",
+                author: "",
+                description: "",
+                image: "",
+                availability: true,
+                genre: ""
+            }
         });
     };
 

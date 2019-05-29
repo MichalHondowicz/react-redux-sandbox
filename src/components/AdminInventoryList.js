@@ -7,9 +7,11 @@ export default class AdminInventoryList extends React.Component {
     render() {
         let inventoryList = <div>No books in inventory</div>;
         if (Array.isArray(this.props.books)) {
-            inventoryList = this.props.books.map(book => {
-                return <InventoryItem book={book} removeFromInventory={this.props.removeFromInventory}
-                                      editModeHandler={this.props.editModeHandler}/>
+            inventoryList = this.props.books.map((book) => {
+                return (<InventoryItem
+                    key={book.name}
+                    book={book} removeFromInventory={this.props.removeFromInventory}
+                    editModeHandler={this.props.editModeHandler}/>)
             })
         }
         return (

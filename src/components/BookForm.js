@@ -6,9 +6,17 @@ export default class BookForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            book: {}
-        }
+            book: {
+                name: "",
+                author: "",
+                description: "",
+                image: "",
+                availability: true,
+                genre: ""
+            }
+        };
     }
+
 
     changeHandler = (e) => {
 
@@ -29,7 +37,8 @@ export default class BookForm extends React.Component {
             {
                 book: newBook
             }
-        )
+        );
+
     };
 
     addNewBook = (e) => {
@@ -40,20 +49,25 @@ export default class BookForm extends React.Component {
             const newBook = {...this.state.book};
             this.props.addNewBook(newBook);
 
-            this.setState({
-                book: {}
-            })
         } else {
             const newBook = {
                 ...this.props.book,
                 ...this.state.book
             };
-            this.props.editBook(this.props.book.name,newBook);
-
-            this.setState({
-                book: {}
-            })
+            this.props.editBook(this.props.book.name, newBook);
         }
+        this.setState({
+            book: {
+                name: "",
+                author: "",
+                description: "",
+                image: "",
+                availability: true,
+                genre: ""
+            }
+        });
+
+        e.target.reset();
     };
 
     logOut = (e) => {

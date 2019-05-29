@@ -3,6 +3,7 @@ import LoginForm from './LoginForm';
 import BookForm from './BookForm';
 import AdminInventoryList from "./AdminInventoryList";
 import {base} from "../base";
+import {Link} from "react-router-dom";
 
 
 class AdminPanel extends React.Component {
@@ -107,6 +108,9 @@ class AdminPanel extends React.Component {
                                         editModeHandler={this.editModeHandler}/>
                 </React.Fragment>
                 }
+                <Link to='/'>
+                    <button className='btn btn-info goToApp'>Home</button>
+                </Link>
             </div>
         )
     }

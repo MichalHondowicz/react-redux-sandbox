@@ -93,7 +93,6 @@ class AdminPanel extends React.Component {
         base.removeBinding(this.ref)
     }
 
-
     render() {
         return (
             <div>

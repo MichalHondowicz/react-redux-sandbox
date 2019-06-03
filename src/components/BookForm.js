@@ -1,7 +1,8 @@
 import React from 'react';
 import {app} from "../base";
+import {connect} from "react-redux";
 
-export default class BookForm extends React.Component {
+class BookForm extends React.Component {
 
     constructor() {
         super();
@@ -94,26 +95,26 @@ export default class BookForm extends React.Component {
                     <div className='form-group'>
                         <input type='text' placeholder='Book name' id='name' name='name'
                                className='form-control' onChange={this.changeHandler}
-                               value={this.state.book.name || this.props.book.name}/>
+                               value={this.props.book.name}/>
                     </div>
                     <div className='form-group'>
                         <input type='text' placeholder='Book author' id='author' name='author'
                                className='form-control' onChange={this.changeHandler}
-                               value={this.state.book.author || this.props.book.author}/>
+                               value={this.props.book.author}/>
                     </div>
                     <div className='form-group'>
                         <input type='text' placeholder='Book price' id='price' name='price'
                                className='form-control' onChange={this.changeHandler}
-                               value={this.state.book.price || this.props.book.price}/>
+                               value={this.props.book.price}/>
                     </div>
                     <div className='form-group'>
                         <textarea placeholder='Book description' id='description' name='description'
                                   className='form-control' onChange={this.changeHandler}
-                                  value={this.state.book.description || this.props.book.description}/>
+                                  value={this.props.book.description}/>
                     </div>
                     <label>
                         Book genre
-                        <select name='genre' id='genre' value={this.state.book.genre || this.props.book.genre}
+                        <select name='genre' id='genre' value={this.props.book.genre}
                                 onChange={this.changeHandler}>
                             <option value="Comedy">Comedy</option>
                             <option value="Horror">Horror</option>
@@ -129,7 +130,7 @@ export default class BookForm extends React.Component {
                         <div className='form-group'>
                             <input type='text' placeholder='Book image' id='image' name='image'
                                    className='form-control' onChange={this.changeHandler}
-                                   value={this.state.book.image || this.props.book.image}/>
+                                   value={this.props.book.image}/>
                         </div>
                         <button type='submit' className='btn btn-primary'>{label}</button>
                         <div>
@@ -141,3 +142,13 @@ export default class BookForm extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state =>{
+    return{
+        book : state.book
+    }
+};
+
+const AddBook = connect(mapStateToProps)(BookForm);
+
+export default AddBook;

@@ -26,21 +26,16 @@ class BookForm extends React.Component {
 
         if (e.target.type === 'checkbox') {
             newBook = {
-                ...this.state.book,
+                ...this.props.book,
                 [e.target.name]: e.target.checked
             };
         } else {
             newBook = {
-                ...this.state.book,
+                ...this.props.book,
                 [e.target.name]: e.target.value
             }
         }
-        this.setState(
-            {
-                book: newBook
-            }
-        );
-
+        this.props.updateBook(newBook);
     };
 
     addNewBook = (e) => {
@@ -143,12 +138,18 @@ class BookForm extends React.Component {
     }
 }
 
-const mapStateToProps = state =>{
-    return{
-        book : state.book
+const mapDispatchToProps = dispatch => {
+    return {
+        updateBook: book => dispatch({type: 'UPDATE_BOOK', payload: book})
     }
 };
 
-const AddBook = connect(mapStateToProps)(BookForm);
+const mapStateToProps = state => {
+    return {
+        book: state.book
+    }
+};
+
+const AddBook = connect(mapStateToProps, mapDispatchToProps)(BookForm);
 
 export default AddBook;

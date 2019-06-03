@@ -43,7 +43,7 @@ class BookForm extends React.Component {
         e.preventDefault();
 
         if (!this.props.editMode) {
-            const newBook = {...this.state.book};
+            const newBook = {...this.props.book};
             this.props.addNewBook(newBook);
 
         } else {
@@ -53,16 +53,15 @@ class BookForm extends React.Component {
             };
             this.props.editBook(this.props.book.name, newBook);
         }
-        this.setState({
-            book: {
-                name: "",
-                author: "",
-                description: "",
-                image: "",
-                availability: true,
-                genre: "",
-                price: ""
-            }
+        this.props.updateBook({
+            name: "",
+            author: "",
+            description: "",
+            image: "",
+            availability: true,
+            genre: "",
+            price: ""
+
         });
 
         e.target.reset();

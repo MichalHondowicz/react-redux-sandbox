@@ -4,22 +4,6 @@ import {connect} from "react-redux";
 
 class BookForm extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            book: {
-                name: "",
-                author: "",
-                description: "",
-                image: "",
-                availability: true,
-                genre: "",
-                price: ""
-            }
-        };
-    }
-
-
     changeHandler = (e) => {
 
         let newBook;
@@ -47,11 +31,10 @@ class BookForm extends React.Component {
             this.props.addNewBook(newBook);
 
         } else {
-            const newBook = {
-                ...this.props.book,
-                ...this.state.book
-            };
-            this.props.editBook(this.props.book.name, newBook);
+
+            const newBook = {...this.props.book};
+
+            this.props.editBook(this.props.titleOfBookForEdit, newBook);
         }
         this.props.updateBook({
             name: "",
@@ -61,7 +44,6 @@ class BookForm extends React.Component {
             availability: true,
             genre: "",
             price: ""
-
         });
 
         e.target.reset();
@@ -119,7 +101,7 @@ class BookForm extends React.Component {
                     <div className='form-group'>
                         <input type='checkbox' id='availability' name='availability'
                                className='form-check-input' onChange={this.changeHandler}
-                               value={this.state.book.availability}/>
+                               value={this.props.book.availability}/>
                         <label htmlFor="availability" className='form-check-label'>Available</label>
                         <div className='form-group'>
                             <input type='text' placeholder='Book image' id='image' name='image'
@@ -145,7 +127,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        book: state.book
+        book: state.book,
+        editMode: state.editMode,
+        titleOfBookForEdit: state.titleOfBookForEdit
     }
 };
 

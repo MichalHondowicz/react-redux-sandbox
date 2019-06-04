@@ -1,6 +1,8 @@
 import React from 'react';
+import {connect} from "react-redux";
 
-export default class InventoryItem extends React.Component {
+
+class InventoryItem extends React.Component {
 
     removeFromInventory = () => {
         this.props.removeFromInventory(this.props.book)
@@ -25,3 +27,20 @@ export default class InventoryItem extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {}
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        editModeHandler: (book) => dispatch({
+            type: 'EDIT_MODE_HANDLER',
+            payload: book
+        })
+    }
+};
+
+const AdminInventoryView = connect(mapStateToProps, mapDispatchToProps)(InventoryItem);
+
+export default AdminInventoryView;

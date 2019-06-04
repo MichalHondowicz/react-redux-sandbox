@@ -11,17 +11,7 @@ class AdminPanel extends React.Component {
     constructor() {
         super();
         this.state = {
-            loggedIn: false,
-            editMode: false,
-            editedBook: {
-                name: "",
-                author: "",
-                description: "",
-                image: "",
-                availability: true,
-                genre: "",
-                price: ""
-            }
+            loggedIn: false
         }
     }
 
@@ -33,28 +23,10 @@ class AdminPanel extends React.Component {
         if (Array.isArray(this.state.books)) {
             this.setState({
                 books: [...this.state.books, newBook],
-                editMode: false,
-                editedBook: {
-                    name: "",
-                    author: "",
-                    description: "",
-                    image: "",
-                    availability: true,
-                    genre: "",
-                    price: ""
-                }
             });
         } else {
             this.setState({books: [newBook]})
         }
-    };
-
-    editModeHandler = (bookToEdit) => {
-        this.setState({
-            editMode: true,
-            editedBook: bookToEdit
-        })
-
     };
 
     editBook = (previousBook, updatedBook) => {
@@ -63,16 +35,6 @@ class AdminPanel extends React.Component {
 
         this.setState({
             books: [...newBooks, updatedBook],
-            editMode: false,
-            editedBook: {
-                name: "",
-                author: "",
-                description: "",
-                image: "",
-                availability: true,
-                genre: "",
-                price: ""
-            }
         });
     };
 
@@ -102,9 +64,9 @@ class AdminPanel extends React.Component {
                 {this.state.loggedIn &&
                 <React.Fragment>
                     <BookForm handleLoggedState={this.handleLoggedState} addNewBook={this.addNewBook}
-                              editMode={this.state.editMode} book={this.state.editedBook} editBook={this.editBook}/>
+                              editBook={this.editBook}/>
                     <AdminInventoryList books={this.state.books} removeFromInventory={this.removeFromInventory}
-                                        editModeHandler={this.editModeHandler}/>
+                    />
                 </React.Fragment>
                 }
                 <Link to='/'>

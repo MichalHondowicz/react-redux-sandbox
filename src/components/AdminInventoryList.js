@@ -12,7 +12,7 @@ export default class AdminInventoryList extends React.Component {
                     return (<InventoryItem
                         key={book.name}
                         book={book} removeFromInventory={this.props.removeFromInventory}
-                        editModeHandler={this.props.editModeHandler}/>)
+                    />)
                 })
         }
         return (

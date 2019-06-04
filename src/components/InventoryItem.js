@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {sendBookToEdit} from "../store/actions";
 
 
 class InventoryItem extends React.Component {
@@ -34,10 +35,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editModeHandler: (book) => dispatch({
-            type: 'EDIT_MODE_HANDLER',
-            payload: book
-        })
+        editModeHandler: (book) => dispatch(sendBookToEdit(book))
     }
 };
 

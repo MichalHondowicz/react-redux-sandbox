@@ -37,14 +37,12 @@ class Header extends React.Component {
         let headerCss = {
             color: this.state.textColor,
             backgroundColor: this.state.backgroundColor,
-
         };
-
         return (
-            <div className='row justify-content-center' style={headerCss} onClick={this.handleClicked}>
-                <h1>{this.state.bookstoreName}</h1>
-                <Link to='/admin'>
-                    <button className='btn btn-info goToAdmin'>Admin Panel</button>
+            <div style={headerCss} className="ui center aligned container" onClick={this.handleClicked}>
+                <h1>{this.state.bookstoreName}</h1><br/>
+                <Link to='/admin' className='ui right aligned container'>
+                    <button className='ui button'>Admin Panel</button>
                 </Link>
             </div>
         );

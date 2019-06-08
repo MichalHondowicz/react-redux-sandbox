@@ -42,7 +42,7 @@ export default class LoginForm extends React.Component {
                             <input type='password' placeholder='password' id='password' name='password'
                                    className='form-control'
                                    onChange={this.loginChangeHandler} value={this.password}/>
-                            <button type='submit' className='btn btn-primary'>Sign in</button>
+                            <button type='submit' className='ui primary button'>Sign in</button>
                         </div>
                     </form>
                 </div>

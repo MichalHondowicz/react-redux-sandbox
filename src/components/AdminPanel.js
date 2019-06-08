@@ -70,7 +70,7 @@ class AdminPanel extends React.Component {
                 </React.Fragment>
                 }
                 <Link to='/'>
-                    <button className='btn btn-info goToApp'>Home</button>
+                    <button className='ui secondary button'>Home</button>
                 </Link>
             </div>
         )

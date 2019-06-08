@@ -20,7 +20,7 @@ export default class BookItem extends React.Component {
                     <i>{this.props.book.price}</i><br/>
                 </div>
                 <div className='col-md-4'>
-                    <button className='btn btn-success' onClick={this.addToOrder}>Add to Cart</button>
+                    <button className='ui positive button' onClick={this.addToOrder}>Add to Cart</button>
                 </div>
             </div>
         )

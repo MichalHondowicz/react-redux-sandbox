@@ -1,4 +1,4 @@
-import {UPDATE_BOOK, EDIT_MODE_HANDLER} from './store/actionsTypes';
+import {UPDATE_BOOK, EDIT_MODE_HANDLER} from './actions/actionsTypes';
 
 const initialState = {
     book: {

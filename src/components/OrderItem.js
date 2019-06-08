@@ -15,7 +15,7 @@ export default class OrderItem extends React.Component {
                     <i>{this.props.book.price}</i><br/>
                 </div>
                 <div className='col-md-4'>
-                    <button className='btn btn-danger' onClick={this.removeFromOrder}>Remove from Cart</button>
+                    <button className='ui negative button' onClick={this.removeFromOrder}>Remove from Cart</button>
                 </div>
             </div>
         )

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {sendBookToEdit} from "../store/actions";
-
+import {sendBookToEdit} from "../actions/actions";
 
 class InventoryItem extends React.Component {
 
@@ -20,9 +19,10 @@ class InventoryItem extends React.Component {
                     <b>{this.props.book.name}</b><br/>
                     <i>{this.props.book.author}</i><br/>
                 </div>
-                <div className='col-md-4'>
-                    <button className='btn btn-danger' onClick={this.removeFromInventory}>Remove</button>
-                    <button className='btn btn-danger' onClick={this.editInventory}>Edit</button>
+                <div className="ui buttons">
+                    <button className="ui button" onClick={this.removeFromInventory}>Remove</button>
+                    <div className="or"></div>
+                    <button className="ui positive button" onClick={this.editInventory}>Edit</button>
                 </div>
             </div>
         )

@@ -1,7 +1,7 @@
 import React from 'react';
 import {app} from "../base";
 import {connect} from "react-redux";
-import {updateBookAction} from '../store/actions';
+import {updateBookAction} from '../actions/actions';
 
 class BookForm extends React.Component {
 

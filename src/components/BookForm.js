@@ -67,7 +67,7 @@ class BookForm extends React.Component {
         let label = this.props.editMode ? 'Save' : 'Add';
 
         return (
-            <div className='adminPanel col-md-4'>
+            <div className='adminPanel col-md-6'>
                 <form onSubmit={this.addNewBook}>
                     <div className='form-group'>
                         <input type='text' placeholder='Book name' id='name' name='name'
@@ -89,28 +89,32 @@ class BookForm extends React.Component {
                                   className='form-control' onChange={this.changeHandler}
                                   value={this.props.book.description}/>
                     </div>
-                    <label>
-                        Book genre
-                        <select name='genre' id='genre' value={this.props.book.genre}
+                    <div className="form-group">
+                        <label className='label' htmlFor="genre">Select genre:</label>
+                        <select className="form-control" name='genre' id='genre' value={this.props.book.genre}
                                 onChange={this.changeHandler}>
                             <option value="Comedy">Comedy</option>
                             <option value="Horror">Horror</option>
                             <option value="Romance">Romance</option>
                             <option value="Fantasy">Fantasy</option>
                         </select>
-                    </label>
+                    </div>
                     <div className='form-group'>
-                        <input type='checkbox' id='availability' name='availability'
-                               className='form-check-input' onChange={this.changeHandler}
-                               value={this.props.book.availability}/>
-                        <label htmlFor="availability" className='form-check-label'>Available</label>
-                        <div className='form-group'>
-                            <input type='text' placeholder='Book image' id='image' name='image'
-                                   className='form-control' onChange={this.changeHandler}
-                                   value={this.props.book.image}/>
+                        <div className='col-sm-10'>
+                            <input type='checkbox' id='availability' name='availability'
+                                   className='form-check-input' onChange={this.changeHandler}
+                                   value={this.props.book.availability}/>
+                            <label htmlFor="availability" className='label form-check-label'>Available</label>
                         </div>
-                        <button type='submit' className='btn btn-primary'>{label}</button>
-                        <div>
+                    </div>
+                    <div className='form-group'>
+                        <input type='text' placeholder='Book image' id='image' name='image'
+                               className='form-control' onChange={this.changeHandler}
+                               value={this.props.book.image}/>
+                    </div>
+                    <div className='form-group'>
+                        <div className='btn-group'>
+                            <button type='submit' className='btn btn-success'>{label}</button>
                             <button onClick={this.logOut} className='btn btn-danger'>Log out</button>
                         </div>
                     </div>

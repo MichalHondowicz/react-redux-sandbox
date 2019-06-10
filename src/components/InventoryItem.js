@@ -19,8 +19,8 @@ class InventoryItem extends React.Component {
                     <b>{this.props.book.name}</b><br/>
                     <i>{this.props.book.author}</i><br/>
                 </div>
-                <div className="ui buttons">
-                    <button className="ui button" onClick={this.removeFromInventory}>Remove</button>
+                <div className="right attached ui buttons">
+                    <button className="ui negative button" onClick={this.removeFromInventory}>Remove</button>
                     <div className="or"></div>
                     <button className="ui positive button" onClick={this.editInventory}>Edit</button>
                 </div>

@@ -2,8 +2,8 @@ import {UPDATE_BOOK, EDIT_MODE_HANDLER} from './actions/actionsTypes';
 
 const initialState = {
     book: {
-        name: 'Book name from store',
-        author: 'Author from store',
+        name: '',
+        author: '',
         description: '',
         availability: true,
         image: ''

@@ -1,48 +1,74 @@
-import React from 'react';
-import {app} from '../base';
+import React from "react"
+import {app} from "../base"
 
 export default class LoginForm extends React.Component {
-
     constructor() {
-        super();
+        super()
         this.state = {
-            password: '',
-            email: ''
+            password: "",
+            email: ""
         }
     }
 
-    loginChangeHandler = (e) => {
+    loginChangeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
-    };
+    }
 
-    authenticate = (e) => {
-        e.preventDefault();
-        app.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    authenticate = e => {
+        e.preventDefault()
+        app
+            .auth()
+            .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
-                this.props.handleLoggedState(true);
+                this.props.handleLoggedState(true)
             })
             .catch(() => {
-                console.log('Unable to authenticate');
+                console.log("Unable to authenticate")
             })
-    };
+    }
+
+    sighInAnonymously = () => {
+        app.auth()
+            .signInAnonymously().then(() => {
+            this.props.handleLoggedState(true)
+        })
+            .catch(() => {
+                console.log("Unable to authenticate")
+            })
+    }
 
     render() {
         return (
             <div>
-                <div className='col-md-4'>
+                <div className="col-md-4">
                     <form onSubmit={this.authenticate}>
-                        <div className='form-group'>
-                            <input type='text' placeholder='email' id='email' name='email'
-                                   className='form-control'
-                                   onChange={this.loginChangeHandler} value={this.email}/>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                placeholder="email"
+                                id="email"
+                                name="email"
+                                className="form-control"
+                                onChange={this.loginChangeHandler}
+                                value={this.email}
+                            />
                         </div>
-                        <div className='form-group'>
-                            <input type='password' placeholder='password' id='password' name='password'
-                                   className='form-control'
-                                   onChange={this.loginChangeHandler} value={this.password}/>
-                            <button type='submit' className='ui primary button'>Sign in</button>
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                placeholder="password"
+                                id="password"
+                                name="password"
+                                className="form-control"
+                                onChange={this.loginChangeHandler}
+                                value={this.password}
+                            />
+                            <button type="submit" className="ui primary button">
+                                Sign in
+                            </button>
+                    <button type="submit" className="ui badge-secondary button" onClick={this.sighInAnonymously}> Sign in anonymously</button>
                         </div>
                     </form>
                 </div>
@@ -50,4 +76,3 @@ export default class LoginForm extends React.Component {
         )
     }
 }
-
